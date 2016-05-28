@@ -128,7 +128,12 @@ Plugin 'https://github.com/nathanaelkane/vim-indent-guides.git'
 "FuzzyFinder
 " Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
 "unite  buffer
-Plugin 'https://github.com/Shougo/unite.vim.git'
+"Plugin 'https://github.com/Shougo/unite.vim.git'
+"vim-bufferline
+"Plugin 'https://github.com/bling/vim-bufferline.git'
+"taboo.vim
+" Plugin 'https://github.com/gcmt/taboo.vim.git'
+
 
 "VimIM
 " Plugin  'https://github.com/vim-scripts/VimIM.git'
@@ -139,17 +144,21 @@ Plugin  'https://github.com/airblade/vim-gitgutter.git'
 "vim-signify
 Plugin  'https://github.com/mhinz/vim-signify.git'
 
-"taboo.vim
-Plugin 'https://github.com/gcmt/taboo.vim.git'
-
-"vim-bufferline
-Plugin 'https://github.com/bling/vim-bufferline.git'
 
 "vim-shell
 Plugin 'https://github.com/xolox/vim-shell.git'
 
 "vim-misc
 Plugin 'https://github.com/xolox/vim-misc.git'
+
+"vim-diff-enhanced
+Plugin  'https://github.com/chrisbra/vim-diff-enhanced.git'
+
+"neocomplete
+Plugin 'https://github.com/Shougo/neocomplete.vim.git'
+
+"easygrep
+Plugin 'https://github.com/dkprice/vim-easygrep.git'
 
 
 
@@ -400,7 +409,7 @@ let NERDTreeMinimalUI=1
 "删除文件时自动删除文件对应buffer
 let NERDTreeAutoDeleteBuffer=1
 
-
+let g:neocomplete#enable_at_startup = 1
 
 "pymode\
 let g:pymode_rope = 0
@@ -417,7 +426,7 @@ let g:pymode_rope_lookup_project = 0
 "https://www.zhihu.com/question/25219546
 "http://www.jianshu.com/p/310368097c75
 
- "let g:airline_theme="powerlineish" 
+" let g:airline_theme="powerlineish" 
 " let g:airline_theme="light"
 " let g:airline_theme="sol"
 " let g:airline_theme="papercolor"
@@ -579,6 +588,11 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 	" :wq! filename
 	" 把编辑处理后的结果强制保存到指定的文件中，如果文件已经存在，则覆盖现有文件，并退出vim编辑器。
 
+
+"全部保存
+nmap <C-S>s :wa<CR>
+"保存单前
+nmap <C>s :w<CR>
 		
 	
 "保存当前窗口状态
@@ -632,10 +646,9 @@ nmap <Leader>pa %
 " 显示/隐藏 MiniBufExplorer 窗口
 " map <Leader>bl :MBEToggle<CR>
 " " buffer 切换快捷键
-" map <C-Tab> :MBEbn<cr>
-" map <C-S-Tab> :MBEbp<cr>
- "设置切换Buffer快捷键"
-nnoremap <Leader>N :bn<CR>
+map <C-Tab> :MBEbn<cr>
+map <S-Tab> :MBEbp<cr>
+ "设置切换:Unnoremap <Leader>N :bn<CR>
 nnoremap <leader>P :bp<CR>
 
 "gundo
