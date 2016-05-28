@@ -1,3 +1,5 @@
+"vimscript学习网站 http://learnvimscriptthehardway.stevelosh.com/
+"官方vim插件地址:  http://vim-scripts.org/vim/scripts.html
 set nocompatible
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -108,9 +110,9 @@ Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 
 "gundo
-" Plugin 'https://github.com/sjl/gundo.vim.git'
+Plugin 'https://github.com/sjl/gundo.vim.git'
 "undotree
-Plugin 'https://github.com/mbbill/undotree.git'
+" Plugin 'https://github.com/mbbill/undotree.git'
 
 "vim-powerline
 "Plugin 'https://github.com/Lokaltog/vim-powerline.git'
@@ -153,6 +155,8 @@ Plugin  'https://github.com/airblade/vim-gitgutter.git'
 
 "vim-shell
 Plugin 'https://github.com/xolox/vim-shell.git'
+"VimTweak
+" Plugin 'https://github.com/vim-scripts/VimTweak.git'
 
 "vim-misc
 Plugin 'https://github.com/xolox/vim-misc.git'
@@ -170,8 +174,14 @@ Plugin 'https://github.com/dkprice/vim-easygrep.git'
 "ag the_silver_searcher
 Plugin 'https://github.com/ggreer/the_silver_searcher.git'
 
+"easytags
+Plugin  'https://github.com/vim-scripts/easytags.vim.git'
 
+"vimwiki
+Plugin 'https://github.com/vim-scripts/vimwiki.git'
 
+"vim-markdown
+Plugin 'https://github.com/plasticboy/vim-markdown.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -571,8 +581,23 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 	" :imap				y	
 	" :cmap					y
 
-	
-	
+	" noremap是不会递归的映射 (大概是no recursion)
+	" 例如
+	" noremap Y y
+	" noremap y Y
+	" 不会出现问题
+
+	" 前缀代表生效范围
+	" inoremap就只在插入(insert)模式下生效
+	" vnoremap只在visual模式下生效
+	" nnoremap就在normal模式下(狂按esc后的模式)生效
+	" :map :noremap :unmap :mapclear
+	" :nmap :nnoremap :nunmap :nmapclear
+	" :vmap :vnoremap :vunmap :vmapclear
+	" :imap :inoremap :iunmap :imapclear
+	" :cmap :cnoremap :cunmap :cmapclear
+
+	" 到此vim的按键已经被你弄得乱七八糟了，用unmap和mapclear清除这些mapping吧。
 	
 	" :w
 	" 保存编辑后的文件内容，但不退出vim编辑器。这个命令的作用是把内存缓冲区中的数据写到启动vim时指定的文件中。
@@ -603,7 +628,16 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 nmap <C-S>s :wa<CR>
 "保存单前
 nmap <C>s :w<CR>
-		
+
+
+"shell.vim
+let g:shell_mappings_enabled = 0
+"全屏
+nnoremap <F11> :Fullscreen<CR>:Maximize<CR>
+vnoremap <F11> :Fullscreen<CR>:Maximize<CR>
+"取消全屏
+nnoremap <C-F11> :Fullscreen<CR>
+vnoremap <C-F11> :Fullscreen<CR>
 	
 "保存当前窗口状态
 nmap <Leader><Leader>s :mksession!<CR>   
@@ -665,7 +699,7 @@ nnoremap <leader>N :bp<CR>
 nnoremap <leader>P :bp<CR>
 
 "gundo
-" let g:gundo_prefer_python3=1
+let g:gundo_prefer_python3=1
 
 
 
@@ -718,9 +752,9 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
  " <CTRL-g>S - same as <CTRL-s><CTRL-s>
 
  "Gundo
- " nnoremap <Leader>u :GundoToggle<CR>
+ nnoremap <Leader>u :GundoToggle<CR>
  "undotree
- nnoremap <Leader>u :UndotreeToggle<CR>
+ " nnoremap <Leader>u :UndotreeToggle<CR>
  
  "Sessionman
  
@@ -782,7 +816,7 @@ let g:spf13_apply_config_mapping='<Leader>fp'
 
 
 map <silent> <F10> :TlistToggle<CR>
-nmap <silent> <F11> :TagbarToggle<CR>
+nmap <silent> <C-F10> :TagbarToggle<CR>
 map <leader>td <Plug>TaskList
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <Leader>a& :Tabularize /&<CR>
@@ -801,7 +835,7 @@ nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 
 
-nmap <F9> :w!<CR>:!python %<CR>
+nmap <C-F9> :w!<CR>:!python %<CR>
 "<F9>map <F9> :!"python.exe" %
 
 " 设置编码自动识别, 中文引号显示  
