@@ -71,6 +71,9 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 "ctrlp
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 
+"tabular
+Plugin 'https://github.com/godlygeek/tabular.git'
+
 "taglist
 Plugin 'https://github.com/vim-scripts/taglist.vim.git'
 
@@ -105,7 +108,9 @@ Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
 
 "gundo
-Plugin 'https://github.com/sjl/gundo.vim.git'
+" Plugin 'https://github.com/sjl/gundo.vim.git'
+"undotree
+Plugin 'https://github.com/mbbill/undotree.git'
 
 "vim-powerline
 "Plugin 'https://github.com/Lokaltog/vim-powerline.git'
@@ -119,6 +124,8 @@ Plugin 'https://github.com/spf13/spf13-vim.git'
 
 "auto-pairs
 Plugin 'https://github.com/jiangmiao/auto-pairs.git'
+"vim-autoclose
+" Plugin 'https://github.com/spf13/vim-autoclose.git'
 
 "vim-indent-guides
 Plugin 'https://github.com/nathanaelkane/vim-indent-guides.git'
@@ -126,7 +133,7 @@ Plugin 'https://github.com/nathanaelkane/vim-indent-guides.git'
 "MiniBufExplorer
 " Plugin 'https://github.com/fholgado/minibufexpl.vim.git'
 "FuzzyFinder
-" Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
+Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
 "unite  buffer
 "Plugin 'https://github.com/Shougo/unite.vim.git'
 "vim-bufferline
@@ -140,9 +147,8 @@ Plugin 'https://github.com/nathanaelkane/vim-indent-guides.git'
 
 "vim-gitgutter
 Plugin  'https://github.com/airblade/vim-gitgutter.git'
-
 "vim-signify
-Plugin  'https://github.com/mhinz/vim-signify.git'
+" Plugin  'https://github.com/mhinz/vim-signify.git'
 
 
 "vim-shell
@@ -159,6 +165,10 @@ Plugin 'https://github.com/Shougo/neocomplete.vim.git'
 
 "easygrep
 Plugin 'https://github.com/dkprice/vim-easygrep.git'
+"ack.vim
+" Plugin 'https://github.com/mileszs/ack.vim.git'
+"ag the_silver_searcher
+Plugin 'https://github.com/ggreer/the_silver_searcher.git'
 
 
 
@@ -646,13 +656,16 @@ nmap <Leader>pa %
 " ÏÔÊ¾/Òþ²Ø MiniBufExplorer ´°¿Ú
 " map <Leader>bl :MBEToggle<CR>
 " " buffer ÇÐ»»¿ì½Ý¼ü
-map <C-Tab> :MBEbn<cr>
-map <S-Tab> :MBEbp<cr>
+" map <C-Tab> :MBEbn<cr>
+" map <S-Tab> :MBEbp<cr>
+
+"aireline
  "ÉèÖÃÇÐ»»:Unnoremap <Leader>N :bn<CR>
+nnoremap <leader>N :bp<CR>
 nnoremap <leader>P :bp<CR>
 
 "gundo
-let g:gundo_prefer_python3=1
+" let g:gundo_prefer_python3=1
 
 
 
@@ -705,7 +718,9 @@ let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
  " <CTRL-g>S - same as <CTRL-s><CTRL-s>
 
  "Gundo
- nnoremap <Leader>u :GundoToggle<CR>
+ " nnoremap <Leader>u :GundoToggle<CR>
+ "undotree
+ nnoremap <Leader>u :UndotreeToggle<CR>
  
  "Sessionman
  
@@ -762,8 +777,8 @@ map <F12> :NERDTreeMirror<CR>
 map <F12> :NERDTreeToggle<CR>
 
 "spf13
-" nmap <Leader>fe :spf13_edit_config_mapping<CR>
-" nmap <Leader>fp :spf13_apply_config_mapping<CR>
+let g:spf13_edit_config_mapping='<Leader>fe'
+let g:spf13_apply_config_mapping='<Leader>fp'
 
 
 map <silent> <F10> :TlistToggle<CR>
