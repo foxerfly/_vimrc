@@ -145,6 +145,14 @@ Plugin 'https://github.com/gcmt/taboo.vim.git'
 "vim-bufferline
 Plugin 'https://github.com/bling/vim-bufferline.git'
 
+"vim-shell
+Plugin 'https://github.com/xolox/vim-shell.git'
+
+"vim-misc
+Plugin 'https://github.com/xolox/vim-misc.git'
+
+
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -160,9 +168,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"
-"
-"
 "
 
 " 编辑vimrc之后，重新加载,也可以 :source $VIM/_vimrc
